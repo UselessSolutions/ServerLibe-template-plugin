@@ -1,11 +1,11 @@
 {
     "required": true,
     "minVersion": "0.8",
-    "package": "turniplabs.examplemod.mixin",
+    "package": "unknown.templateplugin.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
     ],
-    "client": [
+    "server": [
     ],
     "injectors": {
         "defaultRequire": 1

@@ -1,38 +1,24 @@
 package unknown.templateplugin;
 
-import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import turniplabs.halplibe.helper.BlockBuilder;
-import turniplabs.halplibe.util.GameStartEntrypoint;
-import turniplabs.halplibe.util.RecipeEntrypoint;
+import org.useless.serverlibe.ServerLibe;
+import org.useless.serverlibe.api.Listener;
+import org.useless.serverlibe.api.ServerLibeEntrypoint;
+import org.useless.serverlibe.api.annotations.EventListener;
+import org.useless.serverlibe.api.event.player.PlayerChatEvent;
 
 
-public class TemplatePlugin implements ModInitializer, GameStartEntrypoint, RecipeEntrypoint {
-    public static final String MOD_ID = "examplemod";
+public class TemplatePlugin implements ServerLibeEntrypoint, Listener {
+    public static final String MOD_ID = "templateplugin";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    @Override
-    public void onInitialize() {
-        LOGGER.info("TemplatePlugin initialized.");
-    }
-
 	@Override
-	public void beforeGameStart() {
-
+	public void serverlibeInit() {
+		LOGGER.info("TemplatePlugin initialized.");
+		ServerLibe.registerListener(this);
 	}
-
-	@Override
-	public void afterGameStart() {
-
-	}
-
-	@Override
-	public void onRecipesReady() {
-
-	}
-
-	@Override
-	public void initNamespaces() {
-
+	@EventListener
+	public void onChat(PlayerChatEvent chatEvent){
+		chatEvent.player.addChatMessage(String.format("[%s] onChat called!", MOD_ID));
 	}
 }
