@@ -1,6 +1,6 @@
 # Template Plugin
 
-Template for making ServerLibe plugins!
+Template for making [ServerLibe](https://github.com/UselessSolutions/ServerLibe) plugins!
 
 **Note: *DO NOT fork this repository unless you want to contribute!***
 
